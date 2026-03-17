@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Framework Architecture - Envision Healthcare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50">
+    <div class="container mx-auto p-8 max-w-7xl">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-slate-800 mb-2">Sentinel Framework Architecture</h1>
+            <p class="text-lg text-slate-600">AI-Powered Data Quality for Healthcare Pipelines</p>
+            <p class="text-sm text-slate-500 mt-1">Azure Data Factory → Snowflake → Collibra</p>
+        </div>
+
+        <!-- Layer 1: Ingestion Guard -->
+        <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-500 mb-6">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">🛡️ Layer 1: Ingestion Guard</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                    <h3 class="font-semibold text-blue-900 mb-2">Azure Data Factory</h3>
+                    <ul class="text-sm text-blue-800 space-y-1">
+                        <li>• Metadata-driven pipelines</li>
+                        <li>• Pre-load validation</li>
+                        <li>• Circuit breaker logic</li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                    <h3 class="font-semibold text-blue-900 mb-2">Schema Drift Detection</h3>
+                    <ul class="text-sm text-blue-800 space-y-1">
+                        <li>• Column tracking</li>
+                        <li>• Type change alerts</li>
+                        <li>• Auto-registry update</li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                    <h3 class="font-semibold text-blue-900 mb-2">Circuit Breaker</h3>
+                    <div class="text-xs font-medium text-red-700 mb-2">⚠️ Threshold: &gt;5% failures</div>
+                    <ul class="text-sm text-blue-800 space-y-1">
+                        <li>• Auto-stop pipeline</li>
+                        <li>• Alert engineering team</li>
+                        <li>• Log incident details</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-center my-3">
+                <div class="text-xs text-slate-600">
+                    <span class="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></span>
+                    Data flows to Snowflake only if validation passes
+                </div>
+            </div>
+        </div>
+
+        <!-- Layer 2: Clinical Validator -->
+        <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500 mb-6">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">🏥 Layer 2: Clinical Validator</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                    <h3 class="font-semibold text-green-900 mb-2 text-sm">Patient Matching</h3>
+                    <ul class="text-xs text-green-800 space-y-1">
+                        <li>• MRN uniqueness</li>
+                        <li>• DOB consistency</li>
+                        <li>• Identity validation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                    <h3 class="font-semibold text-green-900 mb-2 text-sm">ICD-10 Codes</h3>
+                    <ul class="text-xs text-green-800 space-y-1">
+                        <li>• Format validation</li>
+                        <li>• Active code check</li>
+                        <li>• Effective date verify</li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                    <h3 class="font-semibold text-green-900 mb-2 text-sm">CPT & NPI</h3>
+                    <ul class="text-xs text-green-800 space-y-1">
+                        <li>• Procedure code check</li>
+                        <li>• Luhn algorithm (NPI)</li>
+                        <li>• Specialty matching</li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                    <h3 class="font-semibold text-green-900 mb-2 text-sm">Claim Prevention</h3>
+                    <ul class="text-xs text-green-800 space-y-1">
+                        <li>• Timely filing check</li>
+                        <li>• Prior auth verify</li>
+                        <li>• Medical necessity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <span class="text-xs font-medium text-green-700">🔒 HIPAA Compliant: PHI/PII Dynamic Masking Enabled</span>
+            </div>
+        </div>
+
+        <!-- Layer 3: Agentic Observer -->
+        <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-500 mb-6">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">🤖 Layer 3: Agentic Observer (AI-Powered)</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                    <h3 class="font-semibold text-purple-900 mb-2">Autonomous Anomaly Detection</h3>
+                    <ul class="text-sm text-purple-800 space-y-1">
+                        <li>• ML-based pattern recognition</li>
+                        <li>• Auto-detects new formats</li>
+                        <li>• Generates dbt tests dynamically</li>
+                    </ul>
+                    <div class="mt-2 text-xs text-purple-600 italic">
+                        Example: New provider code format → AI auto-creates validation rule
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                    <h3 class="font-semibold text-purple-900 mb-2">Smart Alert Prioritization</h3>
+                    <ul class="text-sm text-purple-800 space-y-1">
+                        <li>• AI severity scoring</li>
+                        <li>• False positive reduction</li>
+                        <li>• Root cause hypothesis</li>
+                    </ul>
+                    <div class="mt-2 text-xs text-purple-600">
+                        Only surfaces high-confidence issues (&gt;70%)
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                    <h3 class="font-semibold text-purple-900 mb-2">Self-Healing Pipelines</h3>
+                    <ul class="text-sm text-purple-800 space-y-1">
+                        <li>• Auto-fix minor issues</li>
+                        <li>• Propose fixes for medium</li>
+                        <li>• Escalate critical errors</li>
+                    </ul>
+                    <div class="mt-2 text-xs text-purple-600 italic">
+                        Examples: Trim whitespace, standardize dates
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Dashboard -->
+        <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-lg shadow-lg p-6 text-white mb-6">
+            <h2 class="text-2xl font-bold mb-4">📊 Real-Time Metrics & SLAs</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-slate-700 rounded-lg p-4">
+                    <div class="text-xs text-slate-300 mb-1">Pipeline Uptime</div>
+                    <div class="text-3xl font-bold text-green-400">99.5%</div>
+                    <div class="text-xs text-slate-400 mt-1">Target Met</div>
+                </div>
+
+                <div class="bg-slate-700 rounded-lg p-4">
+                    <div class="text-xs text-slate-300 mb-1">False Positive Rate</div>
+                    <div class="text-3xl font-bold text-yellow-400">8%</div>
+                    <div class="text-xs text-slate-400 mt-1">Target: &lt;10%</div>
+                </div>
+
+                <div class="bg-slate-700 rounded-lg p-4">
+                    <div class="text-xs text-slate-300 mb-1">MTTD (Detection)</div>
+                    <div class="text-3xl font-bold text-blue-400">12m</div>
+                    <div class="text-xs text-slate-400 mt-1">Target: &lt;15min</div>
+                </div>
+
+                <div class="bg-slate-700 rounded-lg p-4">
+                    <div class="text-xs text-slate-300 mb-1">Claim Denial Rate</div>
+                    <div class="text-3xl font-bold text-green-400">2.3%</div>
+                    <div class="text-xs text-slate-400 mt-1">Target: &lt;3%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Integration -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-xl font-bold text-slate-800 mb-4">🔧 Technology Integration</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="flex items-center gap-2 p-3 bg-blue-50 rounded border border-blue-200">
+                    <span class="text-sm font-medium text-blue-900">✓ Azure Data Factory</span>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-blue-50 rounded border border-blue-200">
+                    <span class="text-sm font-medium text-blue-900">✓ Snowflake</span>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-blue-50 rounded border border-blue-200">
+                    <span class="text-sm font-medium text-blue-900">✓ Collibra DQ</span>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-blue-50 rounded border border-blue-200">
+                    <span class="text-sm font-medium text-blue-900">✓ Monte Carlo</span>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-purple-50 rounded border border-purple-200">
+                    <span class="text-sm font-medium text-purple-900">🤖 OpenAI API</span>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-purple-50 rounded border border-purple-200">
+                    <span class="text-sm font-medium text-purple-900">🤖 Claude AI</span>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-green-50 rounded border border-green-200">
+                    <span class="text-sm font-medium text-green-900">✓ dbt Core</span>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-green-50 rounded border border-green-200">
+                    <span class="text-sm font-medium text-green-900">✓ Git + CI/CD</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expected Outcomes -->
+        <div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg shadow-lg p-6 text-white mb-6">
+            <h2 class="text-2xl font-bold mb-4">💰 Expected Business Impact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <h3 class="font-semibold mb-2">Cost Avoidance (Annual)</h3>
+                    <ul class="space-y-1 text-sm">
+                        <li>• Prevented claim denials: <span class="font-bold">$2.5M</span></li>
+                        <li>• Reduced engineering rework: <span class="font-bold">$800K</span></li>
+                        <li>• Avoided compliance penalties: <span class="font-bold">$1M+</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Operational Gains</h3>
+                    <ul class="space-y-1 text-sm">
+                        <li>• 15-20% claim denial reduction</li>
+                        <li>• 30% faster feature releases</li>
+                        <li>• 50% less manual investigation</li>
+                        <li>• Zero HIPAA violations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-slate-600 text-sm">
+            <p>Created by <span class="font-semibold">Dipti</span> | Senior Data Quality Manager</p>
+            <p class="text-xs text-slate-500 mt-1">For Envision Healthcare - Director of Data Engineering Interview</p>
+            <p class="text-xs text-slate-500">February 23, 2026</p>
+        </div>
+
+    </div>
+</body>
+</html>
