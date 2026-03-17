@@ -1,0 +1,28 @@
+Project: n8n Data Quality Layer 3 AI Monitoring
+What is this?
+This is an automated "Data Quality" monitor. Instead of just checking if data exists, it uses AI (Groq) to actually "look" at the data and decide if it's any good before it gets used elsewhere.
+
+How the workflow moves:
+
+Snowflake (The Source): The process kicks off by pulling data or running a query in Snowflake. This is likely where the "raw" info lives.
+
+Code in JavaScript: A custom script cleans up that data or formats it so the AI can understand it easily.
+
+Wait: There’s a pause node here—probably to avoid hitting API rate limits or to wait for a specific processing window.
+
+HTTP Request (The "Brain"): This is the cool part. It sends the data to Groq AI (using an OpenAI-compatible API). The AI evaluates the quality of the data based on whatever rules are set up in the prompt.
+
+Slack (The Alert): Finally, it posts a message to Slack. If the data is bad or if the monitoring found something interesting, the team gets a ping immediately.
+
+Key Tech Involved:
+
+Automation: n8n
+
+Database: Snowflake
+
+Intelligence: Groq AI (LPU Inference)
+
+Communication: Slack
+
+Why it matters:
+Instead of a human manually checking spreadsheets or SQL tables for errors, this workflow acts like an automated supervisor that "reads" the data and reports back via Slack if something looks off.
